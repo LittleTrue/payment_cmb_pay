@@ -51,7 +51,7 @@ class WeChatPayService
             throw new ClientError('参数值异常', 1000003);
         }
 
-        return  $this->orderClient->cancelOrderList(
+        return  $this->wechatPayClient->cancelOrderList(
             $startCancelTime,
             $endCancelTime,
             $pageNo,

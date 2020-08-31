@@ -44,7 +44,7 @@ class Client extends BaseClient
     ): array {
         $this->setUri('/ark/open_api/v0/packages/canceling/list');
 
-        $this->setUrlParams([
+        $this->setParams([
             'logistics'         => $logistics,
             'status'            => $orderCheckStatus,
             'page_no'           => $pageNo,
