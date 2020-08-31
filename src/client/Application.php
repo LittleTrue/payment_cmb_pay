@@ -21,6 +21,7 @@ class Application extends Container
      * @var array
      */
     protected $providers = [
+        Base\ServiceProvider::class,
         WeChatPay\ServiceProvider::class
     ];
 
