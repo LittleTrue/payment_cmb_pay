@@ -15,7 +15,7 @@ use Payment\cmbPayClient\Order\Client;
 /**
  * 微信支付服务
  */
-class WeChatPay
+class WeChatPayService
 {
     /**
      * @var Client
