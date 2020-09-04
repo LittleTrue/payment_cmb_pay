@@ -1,9 +1,9 @@
 {
-    "name": "Payment/cmbPayService",
+    "name": "gxz/cmb_pay_service",
     "type": "library",
     "keywords": [
-        "cmbPayService",
-        "cmbPayService-sdk"
+        "cmbpayservice",
+        "cmbpayservice-sdk"
     ],
     "description": "cmbPayService Client Component for DEZHI",
     "license": "Apache-2.0",
