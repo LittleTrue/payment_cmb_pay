@@ -22,7 +22,8 @@ class Application extends Container
      */
     protected $providers = [
         Base\ServiceProvider::class,
-        WeChatPay\ServiceProvider::class
+        WeChatPay\ServiceProvider::class,
+        CombinePay\ServiceProvider::class
     ];
 
     /**

@@ -11,7 +11,7 @@ namespace Payment\cmbPayClient\Base;
 
 use GuzzleHttp\Psr7\Response;
 use Payment\cmbPayClient\Base\Exceptions\ClientError;
-
+use GuzzleHttp\RequestOptions;
 /**
  * Trait MakesHttpRequests.
  */
@@ -32,8 +32,9 @@ trait MakesHttpRequests
      */
     public function request(string $method, string $uri, array $options = []): array
     {
-        $uri = $this->baseUri . $uri;
-        $response = $this->app['http_client']->request($method, $uri, $options);
+        $url = $this->baseUri . $uri;
+        
+        $response = $this->app['http_client']->request($method, $url, $options);
 
         return $this->transform ? $this->transformResponse($response) : $response;
     }

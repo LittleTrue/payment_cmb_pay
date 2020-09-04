@@ -14,7 +14,7 @@ use Payment\cmbPayClient\Base\BaseClient;
 use Payment\cmbPayClient\Base\Exceptions\ClientError;
 
 /**
- * 订单服务请求客户端.
+ * 聚合支付 -- 微信支付请求客户端.
  */
 class Client extends BaseClient
 {
@@ -24,37 +24,16 @@ class Client extends BaseClient
     }
 
     /**
-     * 取消订单列表.
-     *
-     * @param  int         $startCancelTime  订单取消审核开始时间，Unix-Time时间戳, 最大时间范围不超过7天
-     * @param  int         $endCancelTime    订单取消审核结束时间，Unix-Time时间戳, 最大时间范围不超过7天
-     * @param  int         $pageNo           查询当前分页，从1开始计数
-     * @param  int         $pageSize         分页大小, 默认50，最大值不超过100
-     * @param  string      $logistics        物流模式
-     * @param  string      $orderCheckStatus 订单审核状态  当值为"unaudited"时为未审核,当值为"audited"时为已审核
+     * 发起微信统一支付下单.
+     * @param  $payInfo 支付信息
      * @throws ClientError
      */
-    public function cancelOrderList(
-        int $startCancelTime,
-        int $endCancelTime,
-        int $pageNo,
-        int $pageSize,
-        string $logistics,
-        string $orderCheckStatus
-    ): array {
-        $this->setUri('/ark/open_api/v0/packages/canceling/list');
+    public function unifiedOrderSubmit(array $payInfo)
+    {
+        $this->setUri('/v1.0/mchorders/onlinepay');
 
-        $this->setParams([
-            'logistics'         => $logistics,
-            'status'            => $orderCheckStatus,
-            'page_no'           => $pageNo,
-            'page_size'         => $pageSize,
-            'start_time'        => $startCancelTime,
-            'end_time'          => $endCancelTime,
-        ]);
+        $this->setParams($payInfo);
 
-        $request = $this->httpGet();
-
-        return $request['data'];
+        return $request = $this->httpPostJson();
     }
 }

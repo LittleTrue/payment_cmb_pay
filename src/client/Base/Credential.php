@@ -10,7 +10,6 @@
 namespace Payment\cmbPayClient\Base;
 
 use Payment\cmbPayClient\Application;
-use Payment\cmbPayClient\Base\Exceptions\ClientError;
 
 /**
  * authentication and sign.
@@ -45,8 +44,8 @@ class Credential
     public function __construct(Application $app)
     {
         $this->app = $app;
-        $this->_privateKey = $app['private_key'];
-        $this->_publicKey = $app['public_key'];
+        $this->_privateKey = $this->app['config']->get('private_key');
+        $this->_publicKey = $this->app['config']->get('public_key');
         $this->_timeStamp = time();
     }
 
@@ -90,9 +89,9 @@ class Credential
 
         //调用rsaSign函数进行签名
         $this->_sign = $this->rsaSign($sign_string, $this->_privateKey);
-
+        
         $requestParams = $data;
-        $requestParams['apisign'] = $this->_sign;
+        $requestParams['sign'] = $this->_sign;
 
         return $requestParams;
     }
@@ -120,13 +119,14 @@ class Credential
      */
     private function rsaSign($data, $private_key, $sign_type = 'SHA256')
     {
-        $res = openssl_get_privatekey($private_key);
-
-        if ($res) {
+        if (file_exists($private_key)) {
+            $res = openssl_get_privatekey($private_key);
             openssl_sign($data, $sign, $res, $sign_type);
             openssl_free_key($res);
         } else {
-            throw new ClientError('私钥格式错误。');
+            $str = chunk_split($private_key, 64, "\n");
+            $private_key = "-----BEGIN RSA PRIVATE KEY-----\n{$str}-----END RSA PRIVATE KEY-----\n";
+            openssl_sign($data, $sign, $private_key, $sign_type);
         }
         return base64_encode($sign);
     }
