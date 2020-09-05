@@ -11,7 +11,7 @@ namespace Payment\cmbPayClient\Base;
 
 use GuzzleHttp\Psr7\Response;
 use Payment\cmbPayClient\Base\Exceptions\ClientError;
-use GuzzleHttp\RequestOptions;
+
 /**
  * Trait MakesHttpRequests.
  */
@@ -30,10 +30,10 @@ trait MakesHttpRequests
     /**
      * @throws ClientError
      */
-    public function request(string $method, string $uri, array $options = []): array
+    public function request(string $method, string $uri, array $options = [])
     {
         $url = $this->baseUri . $uri;
-        
+
         $response = $this->app['http_client']->request($method, $url, $options);
 
         return $this->transform ? $this->transformResponse($response) : $response;
@@ -42,7 +42,7 @@ trait MakesHttpRequests
     /**
      * @throws ClientError
      */
-    protected function transformResponse(Response $response): array
+    protected function transformResponse(Response $response)
     {
         if (200 != $response->getStatusCode()) {
             throw new ClientError(

@@ -62,7 +62,7 @@ class BaseClient
      *
      * @throws ClientError
      */
-    public function httpPatchJson(): array
+    public function httpPatchJson()
     {
         return $this->requestPatch();
     }
@@ -72,7 +72,7 @@ class BaseClient
      *
      * @throws ClientError
      */
-    public function httpPutJson(): array
+    public function httpPutJson()
     {
         return $this->requestPut();
     }
@@ -82,7 +82,7 @@ class BaseClient
      *
      * @throws ClientError
      */
-    public function httpPostJson(): array
+    public function httpPostJson()
     {
         return $this->requestPost();
     }
@@ -91,7 +91,7 @@ class BaseClient
      * Make a get request.
      * @throws ClientError
      */
-    public function httpGet(): array
+    public function httpGet()
     {
         return $this->requestGet();
     }
@@ -99,7 +99,7 @@ class BaseClient
     /**
      * @throws ClientError
      */
-    protected function requestPatch(): array
+    protected function requestPatch()
     {
         $options[RequestOptions::JSON] = $this->app['credential']->getRequestParams($this->params);
         $options[RequestOptions::HEADERS] = $this->app['credential']->getRequestHeaders();
@@ -110,7 +110,7 @@ class BaseClient
     /**
      * @throws ClientError
      */
-    protected function requestPut(): array
+    protected function requestPut()
     {
         $options[RequestOptions::JSON] = $this->app['credential']->getRequestParams($this->params);
         $options[RequestOptions::HEADERS] = $this->app['credential']->getRequestHeaders();
@@ -121,7 +121,7 @@ class BaseClient
     /**
      * @throws ClientError
      */
-    protected function requestPost(): array
+    protected function requestPost()
     {
         $options[RequestOptions::JSON] = $this->app['credential']->getRequestParams($this->params);
         $options[RequestOptions::HEADERS] = $this->app['credential']->getRequestHeaders();
@@ -132,7 +132,7 @@ class BaseClient
     /**
      * @throws ClientError
      */
-    protected function requestGet(): array
+    protected function requestGet()
     {
         $options[RequestOptions::JSON] = $this->app['credential']->getRequestParams($this->params);
         $options[RequestOptions::HEADERS] = $this->app['credential']->getRequestHeaders();

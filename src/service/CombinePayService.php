@@ -84,7 +84,6 @@ class CombinePayService
         return  $this->combinePayClient->refundInquiry($requestInfo);
     }
 
-
     /**
      * 通用场景 订单取消.
      * @param  $requestInfo 取消订单的信息

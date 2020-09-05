@@ -52,7 +52,7 @@ class Credential
     /**
      * Get request headers finally.
      */
-    public function getRequestHeaders(): array
+    public function getRequestHeaders()
     {
         $headers = [
             'APPID'       => $this->app['config']->get('appid'),
@@ -72,7 +72,7 @@ class Credential
     /**
      * Get request params finally.
      */
-    public function getRequestParams(array $params): array
+    public function getRequestParams(array $params)
     {
         $data = [
             'biz_content' => json_encode($params),
@@ -89,7 +89,7 @@ class Credential
 
         //调用rsaSign函数进行签名
         $this->_sign = $this->rsaSign($sign_string, $this->_privateKey);
-        
+
         $requestParams = $data;
         $requestParams['sign'] = $this->_sign;
 

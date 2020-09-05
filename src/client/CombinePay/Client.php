@@ -91,5 +91,4 @@ class Client extends BaseClient
 
         return $request = $this->httpPostJson();
     }
-    
 }
