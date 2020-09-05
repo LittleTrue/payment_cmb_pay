@@ -77,4 +77,19 @@ class Client extends BaseClient
 
         return $request = $this->httpPostJson();
     }
+
+    /**
+     * 通用场景 退款后进行退款状态查询.
+     * @param  $requestInfo 支付信息
+     * @throws ClientError
+     */
+    public function cancelOrder(array $requestInfo)
+    {
+        $this->setUri('/v1.0/mchorders/close');
+
+        $this->setParams($requestInfo);
+
+        return $request = $this->httpPostJson();
+    }
+    
 }
