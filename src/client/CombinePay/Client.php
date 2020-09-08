@@ -44,7 +44,7 @@ class Client extends BaseClient
      */
     public function payInquiry(array $requestInfo)
     {
-        $this->setUri('/v1.0/mchorders/qrcodeapply');
+        $this->setUri('/v1.0/mchorders/orderquery');
 
         $this->setParams($requestInfo);
 
