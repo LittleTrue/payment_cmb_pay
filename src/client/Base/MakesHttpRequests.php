@@ -30,7 +30,7 @@ trait MakesHttpRequests
     /**
      * @throws ClientError
      */
-    public function request(string $method, string $uri, array $options = [])
+    public function request($method, $uri, array $options = [])
     {
         $url = $this->baseUri . $uri;
 

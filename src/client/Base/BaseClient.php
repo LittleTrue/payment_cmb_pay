@@ -52,7 +52,7 @@ class BaseClient
     /**
      * Set uri.
      */
-    public function setUri(string $uri)
+    public function setUri($uri)
     {
         $this->uri = $uri;
     }
