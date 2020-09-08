@@ -11,7 +11,7 @@ namespace Payment\cmbPayClient\Base;
 
 use GuzzleHttp\Psr7\Response;
 use Payment\cmbPayClient\Base\Exceptions\ClientError;
-
+use GuzzleHttp\RequestOptions;
 /**
  * Trait MakesHttpRequests.
  */
@@ -40,23 +40,11 @@ trait MakesHttpRequests
     }
 
     /**
+     * 原样转发
      * @throws ClientError
      */
     protected function transformResponse(Response $response)
     {
-        if (200 != $response->getStatusCode()) {
-            throw new ClientError(
-                "接口连接异常，异常码：{$response->getStatusCode()}，请联系管理员",
-                $response->getStatusCode()
-            );
-        }
-
-        $result = json_decode($response->getBody()->getContents(), true);
-
-        if (isset($result['error_code']) && 0 !== $result['error_code']) {
-            throw new ClientError($result['error_msg'], $result['error_code']);
-        }
-
-        return $result;
+        return $response->getBody()->getContents();
     }
 }

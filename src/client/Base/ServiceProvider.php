@@ -25,6 +25,7 @@ class ServiceProvider implements ServiceProviderInterface
         $app['http_client'] = function () {
             return new GuzzleHttp([
                 RequestOptions::TIMEOUT => 5,
+                'verify'=>false
             ]);
         };
 
