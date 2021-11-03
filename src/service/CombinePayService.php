@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayService;
 
 use Payment\cmbPayClient\Application;
@@ -29,7 +28,7 @@ class CombinePayService
     }
 
     /**
-     * 通用场景 付款码支付.
+     * 合单支付 -- 付款码支付.
      * @param  $payInfo 支付信息
      * @throws ClientError
      */
@@ -39,11 +38,11 @@ class CombinePayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->combinePayClient->barcodePaySubmit($payInfo);
+        return $this->combinePayClient->barcodePaySubmit($payInfo);
     }
 
     /**
-     * 通用场景 支付后异步查询结果.
+     * 合单支付 -- 支付后异步查询结果.
      * @param  $requestInfo 查询信息
      * @throws ClientError
      */
@@ -53,11 +52,11 @@ class CombinePayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->combinePayClient->payInquiry($requestInfo);
+        return $this->combinePayClient->payInquiry($requestInfo);
     }
 
     /**
-     * 通用场景 支付后进行退款.
+     * 合单支付 -- 支付后进行退款.
      * @param  $refundInfo 退款单信息
      * @throws ClientError
      */
@@ -67,11 +66,11 @@ class CombinePayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->combinePayClient->orderRefund($refundInfo);
+        return $this->combinePayClient->orderRefund($refundInfo);
     }
 
     /**
-     * 通用场景 退款后进行退款状态查询.
+     * 合单支付 -- 退款后进行退款状态查询.
      * @param  $requestInfo 查询信息
      * @throws ClientError
      */
@@ -81,11 +80,11 @@ class CombinePayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->combinePayClient->refundInquiry($requestInfo);
+        return $this->combinePayClient->refundInquiry($requestInfo);
     }
 
     /**
-     * 通用场景 订单取消.
+     * 合单支付 -- 订单取消.
      * @param  $requestInfo 取消订单的信息
      * @throws ClientError
      */
@@ -95,6 +94,6 @@ class CombinePayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->combinePayClient->cancelOrder($requestInfo);
+        return $this->combinePayClient->cancelOrder($requestInfo);
     }
 }

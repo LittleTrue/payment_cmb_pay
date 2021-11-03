@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayClient\WeChatPay;
 
 use Pimple\Container;

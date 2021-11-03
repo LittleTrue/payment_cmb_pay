@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayClient\AliPay;
 
 use Payment\cmbPayClient\Application;
@@ -24,7 +23,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 发起聚合支付通用付款码支付.
+     * 支付宝native支付.
      * @param  $payInfo 支付信息
      * @throws ClientError
      */

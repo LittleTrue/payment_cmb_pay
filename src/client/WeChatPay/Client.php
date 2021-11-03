@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayClient\WeChatPay;
 
 use Payment\cmbPayClient\Application;
@@ -24,7 +23,7 @@ class Client extends BaseClient
     }
 
     /**
-     * 发起微信统一支付下单.
+     * 微信统一支付下单.
      * @param  $payInfo 支付信息
      * @throws ClientError
      */

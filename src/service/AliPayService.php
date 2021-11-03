@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayService;
 
 use Payment\cmbPayClient\Application;
@@ -39,7 +38,7 @@ class AliPayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->aliPayClient->nativeOrderSubmit($payInfo);
+        return $this->aliPayClient->nativeOrderSubmit($payInfo);
     }
 
     /**
@@ -53,6 +52,6 @@ class AliPayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->aliPayClient->windowsOrderSubmit($payInfo);
+        return $this->aliPayClient->windowsOrderSubmit($payInfo);
     }
 }

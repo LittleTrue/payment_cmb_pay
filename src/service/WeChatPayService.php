@@ -6,7 +6,6 @@
  * @description : This file is part of [purchase].
  * DEZHI all rights reserved.
  */
-
 namespace Payment\cmbPayService;
 
 use Payment\cmbPayClient\Application;
@@ -39,6 +38,6 @@ class WeChatPayService
             throw new ClientError('请求参数丢失。');
         }
 
-        return  $this->wechatPayClient->unifiedOrderSubmit($payInfo);
+        return $this->wechatPayClient->unifiedOrderSubmit($payInfo);
     }
 }
