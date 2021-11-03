@@ -28,7 +28,7 @@ class CombinePayService
     }
 
     /**
-     * 合单支付 -- 付款码支付.
+     * 通用支付 -- 付款码支付.
      * @param  $payInfo 支付信息
      * @throws ClientError
      */
@@ -42,7 +42,7 @@ class CombinePayService
     }
 
     /**
-     * 合单支付 -- 支付后异步查询结果.
+     * 通用支付 -- 支付后异步查询结果.
      * @param  $requestInfo 查询信息
      * @throws ClientError
      */
@@ -56,7 +56,7 @@ class CombinePayService
     }
 
     /**
-     * 合单支付 -- 支付后进行退款.
+     * 通用支付 -- 支付后进行退款.
      * @param  $refundInfo 退款单信息
      * @throws ClientError
      */
@@ -70,7 +70,7 @@ class CombinePayService
     }
 
     /**
-     * 合单支付 -- 退款后进行退款状态查询.
+     * 通用支付 -- 退款后进行退款状态查询.
      * @param  $requestInfo 查询信息
      * @throws ClientError
      */
@@ -84,7 +84,7 @@ class CombinePayService
     }
 
     /**
-     * 合单支付 -- 订单取消.
+     * 通用支付 -- 订单取消.
      * @param  $requestInfo 取消订单的信息
      * @throws ClientError
      */
